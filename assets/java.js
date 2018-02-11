@@ -101,13 +101,20 @@
 
 
 
-                if (chosenHero.hp <= 0) {
+                if (chosenEnemy.hp <= 0 && chosenHero.hp <= 0){
+                    $("#fightClub").html(chosenHero.name + " and" + chosenEnemy.name " has killed each other.")
+                    $("#attackBTN").attr("disabled", true)
+
+                } 
+                else if (chosenEnemy.hp <= 0) {
+                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name)
+                    $("#attackBTN").attr("disabled", true)
+                }
+                else if (chosenHero.hp <= 0) {
                     $("#fightClub").html(chosenEnemy.name + " defeated you")
                     $("#attackBTN").attr("disabled", true)
                     wins++
-                } else if (chosenEnemy.hp <= 0) {
-                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name)
-                    $("#attackBTN").attr("disabled", true)
+                
                 }
 
             })

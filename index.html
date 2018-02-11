@@ -24,6 +24,7 @@
                     <button id="attackBTN" class="btn btn-danger">Fight!</button>
                 </div>
                 <div id="fightClub" class="row"></div>
+                <div id="fightClub2" class="row"></div>
             </div>
             <div id="myEnemy" class="col-md-4"></div>
             <audio id="audio" src="http://www.thesoundarchive.com/starwars/light-saber-on.mp3"></audio>
@@ -47,15 +48,15 @@
             var charArr = [
                 {
                     name: "Boba Fett",
-                    hp: 30,
-                    Strength: 9,
+                    hp: 40,
+                    Strength: 12,
                     image: "./assets/img/chibi_boba_fett_by_brittanysdesigns-d2wn7a7.png",
                 },
 
                 {
                     name: "Darth Maul",
-                    hp: 20,
-                    Strength: 11,
+                    hp: 30,
+                    Strength: 14,
                     image: "./assets/img/chibi_darth_maul_by_kam_fox-d8o3ctn.png",
                 },
 
@@ -67,7 +68,7 @@
                 },
                 {
                     name: "Yoda",
-                    hp: 15,
+                    hp: 20,
                     Strength: 20,
                     image: "./assets/img/starwars_PNG59.png",
                 },
@@ -129,20 +130,24 @@
                 audio.play();
                 chosenEnemy.hp -= heroAtt
                 $("#enemyHP").text(chosenEnemy.hp)
-                $("#fightClub").append("<p>" + chosenHero.name + " attacked" + chosenEnemy.name + " for" + heroAtt + " points </p>")
+                $("#fightClub").html("<p>" + chosenHero.name + " attacked" + chosenEnemy.name + " for" + heroAtt + " points </p>")
                 chosenHero.hp -= enemyAtt
                 $("#heroHP").text(chosenHero.hp)
-                $("#fightClub").append("<p>" + chosenEnemy.name + " attacked" + chosenHero.name + " for" + enemyAtt + " points </p>")
+                $("#fightClub2").html("<p>" + chosenEnemy.name + " attacked" + chosenHero.name + " for" + enemyAtt + " points </p>")
 
 
 
                 if (chosenHero.hp <= 0) {
-                    $("#fightClub").html(chosenEnemy.name + " defeated you")
+                    $("#fightClub").html(chosenEnemy.name + " defeated you. You lose.")
+                    $("#myHero").empty()
                     $("#attackBTN").attr("disabled", true)
-                    wins++
-                } else if (chosenEnemy.hp <= 0) {
-                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name)
-                    $("#attackBTN").attr("disabled", true)
+                    
+                } 
+                else if (chosenEnemy.hp <= 0) {
+                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name )
+                    $("#myEnemy").empty()
+                    isEnemyChosen = false
+                   
                 }
 
             })
