@@ -88,7 +88,7 @@
             $(document).on("click", "#resetGame", function () {
                 resetValue()
                 initGame()
-                $("#resetGame").empty()
+               
             })
             //reset values
             function resetValue() {
@@ -196,7 +196,7 @@
                 if (chosenHero.hp <= 0) {
                     $("#fightClub").html(chosenEnemy.name + " defeated you. You lose.")
                     $("#myHero").empty()
-                    $("#attackBTN").attr("disabled", true)
+                    
                     reset()
 
 
@@ -205,9 +205,9 @@
                 else if (chosenEnemy.hp <= 0) {
                     $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name )
                     $("#myEnemy").empty()
+                    wins++
                     isEnemyChosen = false
                     reset()
-                   
                 }
 
             })
