@@ -25,15 +25,15 @@
                 </div>
                 <div id="fightClub" class="row"></div>
                 <div id="fightClub2" class="row"></div>
-                
+
             </div>
             <div id="myEnemy" class="col-md-4"></div>
             <audio id="audio" src="http://www.thesoundarchive.com/starwars/light-saber-on.mp3"></audio>
-            <div id= "reset"></div>
+            <div id="reset"></div>
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">  </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">  </script>
     <!-- <scrip src= "assets/java.js"></script> -->
     <script>
         //game start
@@ -84,50 +84,50 @@
                 $("#fightClub2").empty()
                 $("#reset").html("<button id= 'resetGame'>Restart</button>")
                 console.log("test")
-                }
+            }
             $(document).on("click", "#resetGame", function () {
                 resetValue()
                 initGame()
-               
+
             })
             //reset values
             function resetValue() {
 
-            chosenEnemy = ""
-            isHeroChosen = ""
-            isEnemyChosen = ""
-            chosenHero = ""
-            isHeroAlive = true
-            isEnemyAlive = true
-            wins = 0
-            charArr = [
-                {
-                    name: "Boba Fett",
-                    hp: 40,
-                    Strength: 12,
-                    image: "./assets/img/chibi_boba_fett_by_brittanysdesigns-d2wn7a7.png",
-                },
+                chosenEnemy = ""
+                isHeroChosen = ""
+                isEnemyChosen = ""
+                chosenHero = ""
+                isHeroAlive = true
+                isEnemyAlive = true
+                wins = 0
+                charArr = [
+                    {
+                        name: "Boba Fett",
+                        hp: 40,
+                        Strength: 12,
+                        image: "./assets/img/chibi_boba_fett_by_brittanysdesigns-d2wn7a7.png",
+                    },
 
-                {
-                    name: "Darth Maul",
-                    hp: 30,
-                    Strength: 14,
-                    image: "./assets/img/chibi_darth_maul_by_kam_fox-d8o3ctn.png",
-                },
+                    {
+                        name: "Darth Maul",
+                        hp: 30,
+                        Strength: 14,
+                        image: "./assets/img/chibi_darth_maul_by_kam_fox-d8o3ctn.png",
+                    },
 
-                {
-                    name: "Kylo Ren",
-                    hp: 25,
-                    Strength: 16,
-                    image: "./assets/img/chibi_kylo_ren_by_tana_jo-d9r8tv2.png",
-                },
-                {
-                    name: "Yoda",
-                    hp: 20,
-                    Strength: 20,
-                    image: "./assets/img/starwars_PNG59.png",
-                },
-            ]
+                    {
+                        name: "Kylo Ren",
+                        hp: 25,
+                        Strength: 16,
+                        image: "./assets/img/chibi_kylo_ren_by_tana_jo-d9r8tv2.png",
+                    },
+                    {
+                        name: "Yoda",
+                        hp: 20,
+                        Strength: 20,
+                        image: "./assets/img/starwars_PNG59.png",
+                    },
+                ]
             }
 
             function initGame() {
@@ -196,16 +196,14 @@
                 if (chosenHero.hp <= 0) {
                     $("#fightClub").html(chosenEnemy.name + " defeated you. You lose.")
                     $("#myHero").empty()
-                    
                     reset()
 
-
-                    
-                } 
+                }
                 else if (chosenEnemy.hp <= 0) {
-                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name )
+                    $("#fightClub").html(chosenHero.name + " has defeated " + chosenEnemy.name)
                     $("#myEnemy").empty()
                     wins++
+                    
                     isEnemyChosen = false
                     reset()
                 }
